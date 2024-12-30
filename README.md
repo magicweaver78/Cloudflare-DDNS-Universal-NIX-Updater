@@ -6,7 +6,7 @@ This script was developed for my need to update specific DNS A (IPv4) and AAAA (
   * Automatically discovers the public IPv4 and/or IPv6 assigned without needing for complex probing of device network interfaces
   * Secure (relatively speaking)
 
-As of this moment, I feel this script is perfect for my needs and it's not likely to be developed further other than mandatory maintenancy for it's continued operations in my own environment. Should you have a better approach and/or idea, you're welcome to fork this script and enhance it for your needs
+As of this moment, I feel this script is perfect for my needs and it's not likely to be developed further other than mandatory maintenance for it's continued operations in my own environment. Should you have a better approach and/or idea, you're welcome to fork this script and enhance it for your needs. Credit/acknowledgement is not necessary but it is appreciated if you're forking this script.
 
 **This script has been tested with the following NIX based opertaing systems...**
   * ASUSWRT-Merlin
@@ -31,7 +31,7 @@ The basis for my script was derived from the following persons...
   * [insistant-afk](https://github.com/insistent-afk/cloudflare-ddns-for-synology) for use in the Synology DSM environment
 
 ## How-to:
-While the script _should_ run in any *NIX like environment with the required binaries available, however for ASUSWRT-Merlin and Synology DSM users there are some customisations you can do to take advantage of internal automations.
+While the script _should_ run in any *NIX like environment with the required binaries available, however for ASUSWRT-Merlin and Synology DSM users there are some specialised customisations you can do to take advantage of internal automations.
 
 You can jump directly to the [ASUSWRT-Merlin](#ASUSWRT-Merlin_HowTo) or [Synology DSM](#SynologyDSM_HowTo) section or just keep reading
 
@@ -136,7 +136,7 @@ These steps are specific for ASUSWRT-Merlin users only and may not work on other
 <a name="SynologyDSM_HowTo" />
 
 ### Synology DSM
-These steps are specific for Synology NAS users only and may not work on other Synology devices.
+These steps are specific for Synology NAS users only running DSM 7.x and may not work on other Synology devices.
 
   1. Create the `A` and `AAAA` record names in your Cloudflare account just remember that that...
      | RECORD TYPE | SUGGESTED INITIAL VALUE | DESCRIPTION |
@@ -198,3 +198,19 @@ These steps are specific for Synology NAS users only and may not work on other S
        3.Enter something into the required fields (Note: this information is never used as all the necessary information has been entered into the script directly)
        4. Click **TEST CONNECTION**
        5. Click **OK** when done
+
+## FAQ
+
+  1. **Why didn't you separate out the configuration variables to ensure security?**
+     To ensure maximum compability across as many *NIX environment as possible, I opted to use standard `sh` commands. The ability to import variables via a separate file is only available in the `bash` shell and specially compiled `sh` shells.
+
+  2. **Your script looks like a derivative/clone of this other script. What gives?**
+     I admit that my script was derived/adapted from [alphabt](https://github.com/alphabt/asuswrt-merlin-ddns-cloudflare) and [insistant-afk](https://github.com/insistent-afk/cloudflare-ddns-for-synology). I believe their scripts are also based on other scripts written. If you feel that my script is closer in function to one you have written (and published), please reach out so that I can review and give credit/acknowledgement where due.
+
+  3. __I downloaded your script and used it on this other *NIX platform and it's buggy. Can you fix it?__
+     If you can get me enough information (i.e. your platform, the exact circumstances on how you got the error) I would be glad to look into it and fix it, if it's not to complex. However I have to caveat with the point that the script was originally written for my own use but felt it sufficient for public release/sharing. I can only test on platforms/environments I have access to.
+
+     I strongly encourage you to fork the script and fix/enhance it. However if you wish to contribute fixes/enhancements to the script, I would be happy to review and include it in a future release with proper credit/acnknowledgement to your contribution.
+
+  4. **I only need to update the AAAA record in my DNS, can you tweak your script for that?**
+     Since I update **ONLY IPv4** or **IPv4 AND IPv6**, I don't feel the need to tweak my script for a function I'll never use. I encourage you to fork the script and make the necessary enhancements for your use case or you could wait until I have a need to have **IPv6 ONLY** update.
